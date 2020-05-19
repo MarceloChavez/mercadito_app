@@ -1,3 +1,5 @@
+import 'package:mercaditoapp/functions/negocioFunctions.dart';
+
 class Negocio {
   int id;
   String nombre;
@@ -17,33 +19,22 @@ class Negocio {
 
 
   Negocio.fromJson(Map<String, dynamic> json){
-    var listCat = json['categorias'];
-    List<String> catList = listCat.cast<String>();
-    //List<String> catList = new List<String>.from(listCat);
-
-    var listPago = json['metodo_pago'];
-    List<String> pagoList = listPago.cast<String>();
-    //List<String> pagoList = new List<String>.from(listPago);
-
-    var listCoq = json['cobertura_coquimbo'];
-    List<String> coqList = listCoq.cast<String>();
-    //List<String> coqList = new List<String>.from(listCoq);
-
-    var listSer = json['cobertura_laserena'];
-    //List<String> serList = listSer.cast<String>();
-    List<String> serList = new List<String>.from(listSer);
+    var listCat = getCategoriasFromJson(json['categorias']); // se agregó la función getCategoriasFromJson
+    var listPago = getMetodosPagoFromJson(json['metodo_pago']);
+    var listCoq = getCoberturasCoquimboFromJson(json['cobertura_coquimbo']);
+    var listSer = getCoberturasSerenaFromJson(json['cobertura_laserena']);
 
     id  = json['id'];
     nombre  = json['nombre'];
     direccion  = json['direccion'];
     latitud  = json['latitud'];
     longitud  = json['longitud'];
-    categorias = catList;
-    metodoPago = pagoList;
+    categorias = listCat;
+    metodoPago = listPago;
     descripcion = json['descripcion'];
     despacho = json['despacho'];
-    coberturaCoquimbo = coqList;
-    coberturaSerena = serList;
+    coberturaCoquimbo = listCoq;
+    coberturaSerena = listSer;
     nombreContacto = json['nombre_contacto'];
     //redesSociales = socList;
     imagen = json['imagen'];

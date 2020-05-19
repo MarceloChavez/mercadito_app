@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mercaditoapp/models/negocio.dart';
 import 'package:mercaditoapp/repository/negociosRepository.dart';
-import 'package:mercaditoapp/widget/widgetsNegocio.dart';
+import 'package:mercaditoapp/widgets/widgetsNegocio.dart';
+import 'package:mercaditoapp/functions/negocioFunctions.dart';
 
 class PostPage extends StatefulWidget {
   PostPage({Key key}) : super(key: key);
@@ -14,12 +15,10 @@ class PostPage extends StatefulWidget {
 
 class _PostPageState extends State<PostPage> {
   final NegocioRepository negocioRepository = new NegocioRepository();
-  bool showResponse = true;
 
   @override
   void initState() {
     super.initState();
-    bool showResponse;
   }
 
   @override
@@ -30,7 +29,6 @@ class _PostPageState extends State<PostPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (showResponse)
               responseWidget(), // una vez que presionemos el boton POST se mostrará el widget
           ],
         ),
@@ -57,29 +55,13 @@ class _PostPageState extends State<PostPage> {
           List<Negocio> negociosList = getNegociosList(responseBody);
 
           return Container(
-            height: 400,
-            width: 400,
+            height: 600,
+            width: 450,
             child: negociosListWidget(negociosList),
           );
         }
         return CircularProgressIndicator();
       },
     );
-  }
-
-  List<Negocio> getNegociosList(List<dynamic> json) {
-    List<Negocio> negociosList = [];
-    for (var negocio in json) {
-      try{
-        print(negocio['id']);
-        if(negocio != null) {
-          negociosList.add(Negocio.fromJson(negocio));
-        }
-      }
-      catch(e){
-        print(e);
-      }
-    }
-    return negociosList;
   }
 }
