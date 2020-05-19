@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mercaditoapp/models/negocio.dart';
 import 'package:mercaditoapp/repository/negociosRepository.dart';
+import 'package:mercaditoapp/widget/widgetsNegocio.dart';
 
 class PostPage extends StatefulWidget {
   PostPage({Key key}) : super(key: key);
@@ -24,7 +25,7 @@ class _PostPageState extends State<PostPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Post Page')),
+      appBar: AppBar(title: Text('Negocios cercanos')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -81,29 +82,4 @@ class _PostPageState extends State<PostPage> {
     }
     return negociosList;
   }
-
-  Widget negociosListWidget(List<Negocio> negociosList) {
-    return ListView.builder(
-      itemCount: negociosList.length,
-      itemBuilder: (BuildContext context, int index) {
-        return negocioCard(negociosList[index]);
-      },
-    );
-  }
-
-  Widget negocioCard(Negocio negocio) {
-    NegocioRepository repository = new NegocioRepository();
-    return Card(
-      child: Column(
-        children: <Widget>[
-          Image(image: NetworkImage('https://mercadito.fiuls.cl/sources/upload/commerce/${negocio.id}/${negocio.imagen}')),
-          Text('id: ${negocio.id}'),
-          Text('nombre: ${negocio.nombre}'),
-          Text('latitud: ${negocio.latitud}'),
-          Text('longitud: ${negocio.longitud}'),
-        ],
-      ),
-    );
-  }
-
 }
