@@ -62,3 +62,15 @@ List<String> getCoberturasSerenaFromJson(dynamic jsonCoberturasSerena) {
     }
     return coberturasSerenaList;
   }
+
+List<dynamic> getRedesSocialesFromJson(dynamic jsonRedesSociales) {
+    List<dynamic> redesSocialesList = [];
+    if (jsonRedesSociales != null) {
+      for (var redesSociales in jsonRedesSociales) {
+        redesSocialesList.add(redesSociales);
+      }
+    } else {
+      return ['Sin redes sociales'];
+    }
+    return redesSocialesList;
+  }

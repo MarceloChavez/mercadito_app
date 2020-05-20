@@ -29,6 +29,7 @@ Widget negocioCard(Negocio negocio) {
         Text('La Serena: ${negocio.coberturaSerena}'),
         Text('Contacto: ${negocio.nombreContacto}'),
         Text('Distancia: ${negocio.distancia}'),
+        Text('RRSS: ${negocio.redesSociales}'),
       ],
     ),
   );

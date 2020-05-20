@@ -13,7 +13,7 @@ class Negocio {
   List<String> coberturaCoquimbo;
   List<String> coberturaSerena;
   String nombreContacto;
-  //List<String> redesSociales;
+  List<dynamic> redesSociales;
   String imagen;
   double distancia;
 
@@ -23,6 +23,7 @@ class Negocio {
     var listPago = getMetodosPagoFromJson(json['metodo_pago']);
     var listCoq = getCoberturasCoquimboFromJson(json['cobertura_coquimbo']);
     var listSer = getCoberturasSerenaFromJson(json['cobertura_laserena']);
+    var listSoc = getRedesSocialesFromJson(json['rrss']['url']);
 
     id  = json['id'];
     nombre  = json['nombre'];
@@ -36,7 +37,7 @@ class Negocio {
     coberturaCoquimbo = listCoq;
     coberturaSerena = listSer;
     nombreContacto = json['nombre_contacto'];
-    //redesSociales = socList;
+    redesSociales = listSoc;
     imagen = json['imagen'];
     distancia = json['distance'];
   }
