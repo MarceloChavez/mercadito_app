@@ -13,7 +13,7 @@ class Negocio {
   List<String> coberturaCoquimbo;
   List<String> coberturaSerena;
   String nombreContacto;
-  List<dynamic> redesSociales;
+  List<String> redesSociales;
   String imagen;
   double distancia;
 
