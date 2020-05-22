@@ -11,6 +11,12 @@ class NegocioRepository {
   constructor() {}
 
   Future<http.Response> getNegocios(Map<String, dynamic> body) {
-    return http.post(apiUls, headers: headers, body: body);
+    try{
+      return http.post(apiUls, headers: headers, body: body);
+    }
+    catch(e){
+      print(e);
+    }
+    
   }
 }

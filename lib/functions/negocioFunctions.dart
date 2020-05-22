@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:mercaditoapp/models/negocio.dart';
 
 List<Negocio> getNegociosList(List<dynamic> json) {
@@ -74,3 +75,4 @@ List<String> getRedesSocialesFromJson(dynamic jsonRedesSociales) {
     }
     return redesSocialesList;
   }
+

@@ -42,8 +42,8 @@ class _PostPageState extends State<PostPage> {
       'distancia': '25',
       'search': '',
       'categoria': 'ALL',
-      'lat': '-29.887052399999998',
-      'lon': '-71.2755305',
+      'lat': '-29.902660612793127',
+      'lon': '-71.25197052955629',
       'metodo_pago': ''
     };
 
@@ -56,7 +56,6 @@ class _PostPageState extends State<PostPage> {
 
           return Container(
             height: 600,
-            width: 450,
             child: negociosListWidget(negociosList),
           );
         }
